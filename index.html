@@ -1850,12 +1850,13 @@
             '離境日': 'Departure Day',
             // Transport
             '利木津巴士': 'Limousine Bus',
-            '直達迪士尼': ' to Disney',
+            '直達迪士尼': 'Direct to Disney',
             '園區內交通': 'Resort Monorail',
             '迪士尼度假區線': 'Disney Resort Line',
             '直達巴士': 'Direct Bus',
             '(最少轉乘)': '(Minimal Transfer)',
             'CI100 桃園 → 成田': 'CI100 TPE → NRT',
+            '桃園 → 成田': 'TPE → NRT',
             '電車': 'Train',
             'Disney → 五反田 (電車)': 'Disney → Gotanda (Train)',
             'JR 橫須賀線：五反田 → 鎌倉': 'JR Yokosuka Line: Gotanda → Kamakura',
@@ -1867,6 +1868,9 @@
             '地鐵/JR：淺草 → 秋葉原': 'Subway/JR: Asakusa → Akihabara',
             '團體巴士：新宿 → 河口湖 (全日)': 'Group Bus: Shinjuku → Lake Kawaguchi (Full Day)',
             'SPACIA X 9號 淺草 → 鬼怒川': 'SPACIA X #9 Asakusa → Kinugawa',
+            '特急 日光 8號 → 東京': 'Limited Express Nikko #8 → Tokyo',
+            '新宿 ↔ 御殿場': 'Shinjuku ↔ Gotemba',
+            'JR 成田特快 N\'EX': 'JR Narita Express N\'EX',
             // Day 1
             '抵達東京': 'Arrive in Tokyo',
             '桃園機場 → 成田機場': 'Taoyuan → Narita Airport',
@@ -2060,22 +2064,46 @@
             ];
 
             document.querySelectorAll(selectors.join(', ')).forEach(el => {
-                // Process all text nodes
-                const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
-                let node;
-                while (node = walker.nextNode()) {
-                    const text = node.textContent.trim();
-                    if (!text) continue;
-
-                    // Store original
-                    if (!originals.has(node)) {
-                        originals.set(node, node.textContent);
+                // Special handling for transport-badge which may contain HTML
+                if (el.classList.contains('transport-badge')) {
+                    // Get all text content including from child nodes
+                    const allTextNodes = [];
+                    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+                    let node;
+                    while (node = walker.nextNode()) {
+                        allTextNodes.push(node);
                     }
+                    
+                    // Translate each text node
+                    allTextNodes.forEach(textNode => {
+                        if (!originals.has(textNode)) {
+                            originals.set(textNode, textNode.textContent);
+                        }
+                        
+                        if (toLang === 'en') {
+                            textNode.textContent = translateText(originals.get(textNode), 'en');
+                        } else {
+                            textNode.textContent = originals.get(textNode);
+                        }
+                    });
+                } else {
+                    // Process all text nodes normally
+                    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+                    let node;
+                    while (node = walker.nextNode()) {
+                        const text = node.textContent.trim();
+                        if (!text) continue;
 
-                    if (toLang === 'en') {
-                        node.textContent = translateText(originals.get(node), 'en');
-                    } else {
-                        node.textContent = originals.get(node);
+                        // Store original
+                        if (!originals.has(node)) {
+                            originals.set(node, node.textContent);
+                        }
+
+                        if (toLang === 'en') {
+                            node.textContent = translateText(originals.get(node), 'en');
+                        } else {
+                            node.textContent = originals.get(node);
+                        }
                     }
                 }
             });
