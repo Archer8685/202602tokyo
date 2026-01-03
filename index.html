@@ -1464,7 +1464,7 @@
                             <div class="meal-icon">🍣</div>
                             <div class="meal-label">午餐</div>
                             <div class="meal-name">
-                                <a href="https://www.tsukijitamasushi.com/" target="_blank">築地玉寿司</a>
+                                <a href="https://tabelog.com/tw/kanagawa/A1401/A140101/14003215/" target="_blank">築地玉寿司</a>
                             </div>
                         </div>
                         <div class="meal-item">
@@ -1541,7 +1541,7 @@
                             <div class="meal-icon">🥩</div>
                             <div class="meal-label">午餐</div>
                             <div class="meal-name">
-                                <a href="https://peterluger.jp/" target="_blank">Peter Luger</a>
+                                <a href="https://peterluger.co.jp/" target="_blank">Peter Luger</a>
                             </div>
                         </div>
                         <div class="meal-item">
@@ -1559,15 +1559,13 @@
                     <div class="activity">
                         <div class="activity-time">上午</div>
                         <div class="activity-content">
-                            <div class="activity-name">惠比壽 & Peter Luger 午餐</div>
+                            <div class="activity-name">惠比壽花園廣場 & Peter Luger 午餐</div>
                             <div class="activity-desc">
                                 <a href="https://gardenplace.jp/" target="_blank" class="link">
                                     <span class="link-icon">🌳</span> 惠比壽花園廣場
                                 </a>
-                            </div>
-                            <br>
-                            <div class="activity-desc"></div>
-                                <a href="https://peterluger.jp/" target="_blank" class="link">
+                                <br>
+                                <a href="https://peterluger.co.jp/" target="_blank" class="link">
                                     <span class="link-icon">🍔</span> Peter Luger
                                 </a>
                             </div>
@@ -1798,35 +1796,36 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>🌸 <span data-lang-zh>2026 東京二月遊</span><span data-lang-en>Tokyo Feb 2026</span> 🌸</p>
-        <p style="margin-top: 10px;"><span data-lang-zh>祝旅途愉快！</span><span data-lang-en>Have a wonderful trip!</span> ✈️</p>
+        <p>🌸 <span class="i18n" data-zh="2026 東京二月遊" data-en="Tokyo Feb 2026">2026 東京二月遊</span> 🌸</p>
+        <p style="margin-top: 10px;"><span class="i18n" data-zh="祝旅途愉快！" data-en="Have a wonderful trip!">祝旅途愉快！</span> ✈️</p>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // ========== Translation Data ==========
-        const translations = {
+        // ========== Translation Dictionary ==========
+        const dict = {
             // Section titles
             '交通': 'Transport',
-            '餐食': 'Meals',
+            '餐食': 'Meals', 
             '行程': 'Itinerary',
-            // Time periods
+            // Time
             '上午': 'AM',
             '下午': 'PM',
             '晚上': 'Night',
             '全日': 'All Day',
             '傍晚': 'Evening',
-            // Meal labels
+            // Meals
             '早餐': 'Breakfast',
             '午餐': 'Lunch',
             '晚餐': 'Dinner',
-            // Common words
             '超商': 'Convenience Store',
             '自由': 'Free',
             '飯店': 'Hotel',
             '飯店早餐': 'Hotel Breakfast',
             '貴賓室': 'Lounge',
             '飛機餐': 'In-flight Meal',
+            '飯店會席': 'Kaiseki Dinner',
+            '自由(中華街)': 'Free (Chinatown)',
             // Dates
             '2月11日 (三)': 'Feb 11 (Wed)',
             '2月12日 (四)': 'Feb 12 (Thu)',
@@ -1849,45 +1848,48 @@
             '東急Stay五反田 (入住 15:00)': 'Tokyu Stay Gotanda (Check-in 15:00)',
             'ASAYA HOTEL (鬼怒川溫泉)': 'ASAYA HOTEL (Kinugawa Onsen)',
             '離境日': 'Departure Day',
-            // Activities - Day 1
+            // Transport
+            '利木津巴士': 'Limousine Bus',
+            '直達迪士尼': ' to Disney',
+            '園區內交通': 'Resort Monorail',
+            '迪士尼度假區線': 'Disney Resort Line',
+            '直達巴士': 'Direct Bus',
+            '(最少轉乘)': '(Minimal Transfer)',
+            // Day 1
             '抵達東京': 'Arrive in Tokyo',
             '桃園機場 → 成田機場': 'Taoyuan → Narita Airport',
             '搭乘利木津巴士': 'Take Limousine Bus',
             '直達東京迪士尼度假區': 'Direct to Tokyo Disney Resort',
             '入住飯店 & 人形町今半 用餐': 'Check-in & Dinner at Imahan',
             '人形町今半': 'Imahan (Sukiyaki)',
-            '直達迪士尼': ' to Disney',
-            '利木津巴士': 'Limousine Bus',
-            // Activities - Day 2
-            '園區內交通': 'Resort Monorail',
-            '迪士尼度假區線': 'Disney Resort Line',
+            // Day 2
             '迪士尼樂園/海洋 (全日暢遊)': 'Disney Land/Sea (Full Day)',
             '迪士尼樂園/海洋 全日暢遊': 'Disney Land/Sea Full Day',
             '東京迪士尼樂園': 'Tokyo Disneyland',
             '東京迪士尼海洋': 'Tokyo DisneySea',
             '大廚米奇': 'Chef Mickey',
             '水晶宮': 'Crystal Palace',
-            // Activities - Day 3
+            // Day 3
             '迪士尼最後衝刺/遊玩': 'Last Disney Fun',
             '把握最後時間享受園區': 'Enjoy the parks one last time',
             '移動並入住東急Stay五反田': 'Move to Tokyu Stay Gotanda',
             '五反田附近休閒/用餐': 'Relax & Dine near Gotanda',
             '探索飯店周邊美食': 'Explore nearby restaurants',
-            // Activities - Day 4
+            // Day 4
             '前往三鷹/吉祥寺商圈': 'Head to Mitaka/Kichijoji',
             '三鷹之森吉卜力美術館': 'Ghibli Museum',
             '吉祥寺商圈逛街': 'Shopping in Kichijoji',
             '吉祥寺觀光導覽': 'Kichijoji Guide',
             '官方網站': 'Official Website',
             '⚠️ 需提前購票！1/10 開賣': '⚠️ Book in advance! Sales start 1/10',
-            // Activities - Day 5
+            // Day 5
             '鶴岡八幡宮、小町通': 'Tsurugaoka Hachimangu & Komachi St.',
             '鶴岡八幡宮': 'Tsurugaoka Hachimangu',
             '鎌倉大佛 (高德院)': 'Great Buddha (Kotoku-in)',
             '高德院官網': 'Kotoku-in Website',
             '江之島看夕陽/用餐': 'Sunset & Dinner at Enoshima',
             '江之島觀光': 'Enoshima Tourism',
-            // Activities - Day 6
+            // Day 6
             '搭乘特急 SPACIA X 前往鬼怒川': 'Take SPACIA X to Kinugawa',
             'SPACIA X 特急列車': 'SPACIA X Limited Express',
             '⚠️ 需提前預訂座位！': '⚠️ Reserve seats in advance!',
@@ -1895,20 +1897,19 @@
             '楯岩大吊橋': 'Tateiwa Bridge',
             '入住 ASAYA HOTEL 享用設施': 'Check-in ASAYA HOTEL',
             'ASAYA HOTEL 官網': 'ASAYA HOTEL Website',
-            '飯店會席': 'Kaiseki Dinner',
-            // Activities - Day 7
+            // Day 7
             '飯店休息、享受溫泉': 'Rest & Enjoy Onsen',
             '最後享受 ASAYA 的設施': 'Last chance to enjoy ASAYA facilities',
             '搭乘特急返回五反田': 'Return to Gotanda by Express',
             '東武特急 日光號': 'Tobu Nikko Express',
-            // Activities - Day 8
+            // Day 8
             '淺草舊城區觀光': 'Asakusa Sightseeing',
             '淺草寺': 'Sensoji Temple',
             '秋葉原電器街、動漫周邊': 'Akihabara Electronics & Anime',
             '秋葉原觀光協會': 'Akihabara Tourism',
             '秋葉原用餐、回飯店': 'Dinner in Akihabara',
             '探索秋葉原美食': 'Explore Akihabara food',
-            // Activities - Day 9
+            // Day 9
             '敘敘苑燒肉午餐 (已預訂)': 'Jojoen BBQ Lunch (Reserved)',
             '敘敘苑官網': 'Jojoen Website',
             '✅ 已預訂': '✅ Reserved',
@@ -1917,76 +1918,72 @@
             'Animate 總店': 'Animate Main Store',
             '池袋/五反田周邊購物': 'Shopping in Ikebukuro/Gotanda',
             '自由購物時間': 'Free shopping time',
-            // Activities - Day 10
+            // Day 10
             '御殿場 Premium Outlets': 'Gotemba Premium Outlets',
             '御殿場 Premium Outlets 官網': 'Gotemba Premium Outlets Website',
             '⚠️ 巴士座位需預約！': '⚠️ Bus seats require reservation!',
             '返回新宿/五反田': 'Return to Shinjuku/Gotanda',
             '搭乘直達巴士返回市區': 'Return by direct bus',
-            '直達巴士': 'Direct Bus',
-            // Activities - Day 11
+            // Day 11
             '河口湖一日遊': 'Lake Kawaguchi Day Trip',
             '富士山五合目': 'Mt. Fuji 5th Station',
             '河口湖觀光情報': 'Lake Kawaguchi Info',
             '⚠️ 團體行程請盡早預訂！': '⚠️ Book group tour early!',
             '河口湖畔散策': 'Lake Kawaguchi Stroll',
             '欣賞富士山美景': 'Enjoy Mt. Fuji views',
-            // Activities - Day 12
+            // Day 12
             '澀谷觀光、購物': 'Shibuya Sightseeing & Shopping',
             '原宿/表參道逛街': 'Harajuku/Omotesando Shopping',
             '表參道商店會': 'Omotesando Shopping',
             '竹下通': 'Takeshita Street',
-            // Activities - Day 13
+            // Day 13
             '合味道杯麵博物館': 'Cup Noodles Museum',
             '杯麵博物館官網': 'Cup Noodles Museum Website',
             '紅磚倉庫、橫濱商圈': 'Red Brick & Yokohama Shopping',
             '橫濱紅磚倉庫': 'Yokohama Red Brick',
             '橫濱中華街用餐': 'Dinner at Yokohama Chinatown',
             '橫濱中華街官網': 'Yokohama Chinatown Website',
-            '自由(中華街)': 'Free (Chinatown)',
-            // Activities - Day 14
+            // Day 14
             '惠比壽 (午餐/散步)': 'Ebisu (Lunch/Walk)',
             '惠比壽花園廣場': 'Yebisu Garden Place',
             '東京車站 (採買伴手禮)': 'Tokyo Station (Souvenirs)',
-            'TOKYO STATION CITY': 'TOKYO STATION CITY',
             '新宿 (都廳夜景、購物)': 'Shinjuku (Night View/Shopping)',
             '東京都廳展望室 (免費)': 'Tokyo Metro Building Observatory (Free)',
-            // Activities - Day 15
+            // Day 15
             '飯店辦理退房': 'Hotel Check-out',
             '整理行李、Check-out': 'Pack & Check-out',
             '前往成田機場': 'Head to Narita Airport',
             'N\'EX 成田特快': 'N\'EX Narita Express',
             '搭機離境 ✈️': 'Departure ✈️',
             '期待下次的東京之旅！🌸': 'Until next time, Tokyo! 🌸',
-            '(最少轉乘)': '(Minimal Transfer)',
             // Todo section
             '待處理事項 & 預訂提醒': 'To-Do & Booking Reminders',
             '📝 待辦': '📝 Todo',
             '🎨 三鷹之森吉卜力美術館門票': '🎨 Ghibli Museum Tickets',
-            '活動日期：2/14 (六) | 門票於前一個月 10 日開賣': 'Date: Feb 14 (Sat) | Tickets on sale 10th of previous month',
+            '活動日期：2/14 (六) | 門票於前一個月 10 日開賣': 'Date: Feb 14 | Tickets on sale 10th of prev month',
             '⏰ 建議預訂：2026/1/10 10:00 (日本時間)': '⏰ Book: 2026/1/10 10:00 (JST)',
             '購票官網': 'Ticket Website',
             '🎭 迪士尼鑽石馬蹄餐廳秀': '🎭 Disney Diamond Horseshoe Show',
-            '活動日期：2/12 (四) | 用餐日前一個月開始預訂': 'Date: Feb 12 (Thu) | Book 1 month before',
+            '活動日期：2/12 (四) | 用餐日前一個月開始預訂': 'Date: Feb 12 | Book 1 month before',
             '⏰ 建議預訂：2026/1/12 10:00 (日本時間)': '⏰ Book: 2026/1/12 10:00 (JST)',
             '餐廳資訊': 'Restaurant Info',
             '🚄 東武特急 SPACIA X (淺草 → 鬼怒川)': '🚄 Tobu SPACIA X (Asakusa → Kinugawa)',
-            '乘車日期：2/16 (一) | 乘車日一個月前開賣': 'Date: Feb 16 (Mon) | Sales start 1 month before',
+            '乘車日期：2/16 (一) | 乘車日一個月前開賣': 'Date: Feb 16 | Sales 1 month before',
             '⏰ 建議預訂：2026/1/16 10:00 (日本時間)': '⏰ Book: 2026/1/16 10:00 (JST)',
             'SPACIA X 官網': 'SPACIA X Website',
             '🚄 東武特急 日光 8號 (日光 → 新宿)': '🚄 Tobu Nikko 8 (Nikko → Shinjuku)',
-            '乘車日期：2/17 (二) | 乘車日一個月前開賣': 'Date: Feb 17 (Tue) | Sales start 1 month before',
+            '乘車日期：2/17 (二) | 乘車日一個月前開賣': 'Date: Feb 17 | Sales 1 month before',
             '⏰ 建議預訂：2026/1/17 10:00 (日本時間)': '⏰ Book: 2026/1/17 10:00 (JST)',
             '東武特急官網': 'Tobu Express Website',
             '🗻 河口湖一日遊團體行程': '🗻 Lake Kawaguchi Day Tour',
-            '活動日期：2/21 (六) | 團體行程請盡早預訂': 'Date: Feb 21 (Sat) | Book early',
-            '⏰ 建議預訂：立即預訂，以免向隅': '⏰ Book: ASAP to avoid missing out',
+            '活動日期：2/21 (六) | 團體行程請盡早預訂': 'Date: Feb 21 | Book early',
+            '⏰ 建議預訂：立即預訂，以免向隅': '⏰ Book: ASAP',
             'Klook 富士山一日遊': 'Klook Mt. Fuji Tour',
             '🥩 ちんや 淺草本店 (壽喜燒/午餐)': '🥩 Chinya Asakusa (Sukiyaki/Lunch)',
-            '用餐日期：2/18 (三) | 淺草知名壽喜燒': 'Date: Feb 18 (Wed) | Famous Asakusa Sukiyaki',
+            '用餐日期：2/18 (三) | 淺草知名壽喜燒': 'Date: Feb 18 | Famous Sukiyaki',
             '⏰ 建議預訂：2026/1/18 10:00 (日本時間)': '⏰ Book: 2026/1/18 10:00 (JST)',
             'ちんや 官網': 'Chinya Website',
-            '🍜 五代目 花山烏冬 日本橋店 (晚餐)': '🍜 Hanayama Udon Nihonbashi (Dinner)',
+            '🍜 五代目 花山烏冬 日本橋店 (晚餐)': '🍜 Hanayama Udon (Dinner)',
             '用餐日期：2/19 (四)': 'Date: Feb 19 (Thu)',
             '⏰ 建議預訂：2026/1/19 10:00 (日本時間)': '⏰ Book: 2026/1/19 10:00 (JST)',
             '花山烏冬官網': 'Hanayama Udon Website',
@@ -1995,7 +1992,7 @@
             '⏰ 建議預訂：2026/1/20 10:00 (日本時間)': '⏰ Book: 2026/1/20 10:00 (JST)',
             '螃蟹道樂官網': 'Kani Doraku Website',
             '🚌 御殿場 Outlets 直達巴士': '🚌 Gotemba Outlets Direct Bus',
-            '乘車日期：2/20 (五) | 座位需預約': 'Date: Feb 20 (Fri) | Seat reservation required',
+            '乘車日期：2/20 (五) | 座位需預約': 'Date: Feb 20 | Seat reservation required',
             '⏰ 建議預訂：2026/1/23 10:00 (日本時間)': '⏰ Book: 2026/1/23 10:00 (JST)',
             '高速巴士預約': 'Highway Bus Reservation',
             '🍖 人形町今半 舞浜イクスピアリ店': '🍖 Imahan Maihama Ikspiari',
@@ -2004,144 +2001,140 @@
             '今半官網': 'Imahan Website',
         };
 
-        // Store original text
-        const originalTexts = new Map();
+        // Store original texts
+        const originals = new Map();
+        let currentLang = 'zh';
 
-        // ========== Language Functions ==========
-        function detectBrowserLanguage() {
-            const lang = navigator.language || navigator.userLanguage;
-            return lang.startsWith('zh') ? 'zh' : 'en';
-        }
-
-        function getStoredLanguage() {
-            return localStorage.getItem('preferredLanguage');
-        }
-
-        function setStoredLanguage(lang) {
-            localStorage.setItem('preferredLanguage', lang);
-        }
-
-        function translateElement(element, toLang) {
-            // Skip elements with data-lang-zh or data-lang-en attributes
-            if (element.hasAttribute('data-lang-zh') || element.hasAttribute('data-lang-en')) {
-                return;
-            }
-
-            // Get direct text content (not children)
-            const childNodes = Array.from(element.childNodes);
-            childNodes.forEach(node => {
-                if (node.nodeType === Node.TEXT_NODE) {
-                    const text = node.textContent.trim();
-                    if (text) {
-                        // Store original
-                        if (!originalTexts.has(node)) {
-                            originalTexts.set(node, node.textContent);
-                        }
-
-                        if (toLang === 'en') {
-                            // Translate to English
-                            let translated = node.textContent;
-                            Object.keys(translations).forEach(key => {
-                                if (translated.includes(key)) {
-                                    translated = translated.replace(key, translations[key]);
-                                }
-                            });
-                            node.textContent = translated;
-                        } else {
-                            // Restore original Chinese
-                            if (originalTexts.has(node)) {
-                                node.textContent = originalTexts.get(node);
-                            }
-                        }
+        // ========== Translation Functions ==========
+        function translateText(text, toLang) {
+            if (toLang === 'en') {
+                let result = text;
+                // Sort keys by length (longest first) for better matching
+                const sortedKeys = Object.keys(dict).sort((a, b) => b.length - a.length);
+                for (const key of sortedKeys) {
+                    if (result.includes(key)) {
+                        result = result.split(key).join(dict[key]);
                     }
                 }
-            });
+                return result;
+            }
+            return text;
         }
 
         function translatePage(toLang) {
-            // Update HTML attribute
+            currentLang = toLang;
             document.documentElement.setAttribute('data-lang', toLang);
 
-            // Update language buttons
+            // Update buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.setLang === toLang);
             });
 
-            // Translate all text elements
-            const elementsToTranslate = document.querySelectorAll(
-                '.day-date, .day-location, .section-title, .activity-time, ' +
-                '.activity-name, .activity-desc, .meal-label, .meal-name, ' +
-                '.transport-badge, .todo-header h2, .todo-content h3, ' +
-                '.todo-content p, .todo-booking, .link'
-            );
+            // Get all text-containing elements
+            const selectors = [
+                '.day-date', '.day-location', '.section-title', 
+                '.activity-time', '.activity-name', '.activity-desc',
+                '.meal-label', '.meal-name', '.transport-badge',
+                '.todo-header h2', '.todo-content h3', '.todo-content p',
+                '.todo-booking', '.link', '.nav-tab'
+            ];
 
-            elementsToTranslate.forEach(el => translateElement(el, toLang));
+            document.querySelectorAll(selectors.join(', ')).forEach(el => {
+                // Process all text nodes
+                const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+                let node;
+                while (node = walker.nextNode()) {
+                    const text = node.textContent.trim();
+                    if (!text) continue;
+
+                    // Store original
+                    if (!originals.has(node)) {
+                        originals.set(node, node.textContent);
+                    }
+
+                    if (toLang === 'en') {
+                        node.textContent = translateText(originals.get(node), 'en');
+                    } else {
+                        node.textContent = originals.get(node);
+                    }
+                }
+            });
+
+            // Handle i18n class elements
+            document.querySelectorAll('.i18n').forEach(el => {
+                if (toLang === 'en' && el.dataset.en) {
+                    el.textContent = el.dataset.en;
+                } else if (el.dataset.zh) {
+                    el.textContent = el.dataset.zh;
+                }
+            });
 
             // Store preference
-            setStoredLanguage(toLang);
+            localStorage.setItem('lang', toLang);
+        }
+
+        function detectLanguage() {
+            const stored = localStorage.getItem('lang');
+            if (stored) return stored;
+            const browserLang = navigator.language || navigator.userLanguage;
+            return browserLang.startsWith('zh') ? 'zh' : 'en';
         }
 
         // ========== Initialize ==========
         document.addEventListener('DOMContentLoaded', function() {
-            // Determine initial language
-            const storedLang = getStoredLanguage();
-            const initialLang = storedLang || detectBrowserLanguage();
-            
-            // Apply initial language
-            if (initialLang === 'en') {
-                setTimeout(() => translatePage('en'), 100);
-            }
-
             // Language toggle buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     translatePage(this.dataset.setLang);
                 });
             });
-        });
 
-        // ========== Navigation ==========
-        // Smooth scroll for navigation
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                // Update active state
-                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Smooth scroll
-                if (targetElement) {
-                    const navHeight = document.querySelector('.nav-tabs').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - navHeight - 10;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+            // Auto-detect and apply language
+            const initLang = detectLanguage();
+            if (initLang === 'en') {
+                setTimeout(() => translatePage('en'), 50);
+            }
 
-        // Update active nav on scroll
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.day-card, .todo-section');
-            const navHeight = document.querySelector('.nav-tabs').offsetHeight;
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - navHeight - 50;
-                if (window.pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
+            // Smooth scroll for navigation
             document.querySelectorAll('.nav-tab').forEach(tab => {
-                tab.classList.remove('active');
-                if (tab.getAttribute('href') === '#' + current) {
-                    tab.classList.add('active');
-                }
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    if (targetElement) {
+                        const navHeight = document.querySelector('.nav-tabs').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navHeight - 10;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Update active nav on scroll
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('.day-card, .todo-section');
+                const navHeight = document.querySelector('.nav-tabs').offsetHeight;
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - navHeight - 50;
+                    if (window.pageYOffset >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                    if (tab.getAttribute('href') === '#' + current) {
+                        tab.classList.add('active');
+                    }
+                });
             });
         });
     </script>
