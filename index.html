@@ -122,17 +122,51 @@
             display: none;
         }
 
+        /* Desktop: wrap tabs into multiple rows so later days are clickable */
+        @media (min-width: 900px) {
+            .nav-tabs {
+                overflow-x: visible;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 14px 18px;
+                gap: 10px;
+                scrollbar-width: auto;
+            }
+
+            .nav-tabs::-webkit-scrollbar {
+                display: initial;
+            }
+        }
+
         .nav-tab {
             flex-shrink: 0;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 14px;
+            border-radius: 16px;
             background: var(--light-bg);
             color: var(--text-light);
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
             transition: all 0.3s ease;
-            white-space: nowrap;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+            min-width: 140px;
+        }
+
+        .nav-main {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1.15;
+            letter-spacing: 0.2px;
+        }
+
+        .nav-meta {
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--text-light);
+            opacity: 0.9;
+            line-height: 1.1;
         }
 
         .nav-tab:hover, .nav-tab.active {
@@ -154,7 +188,8 @@
             border-radius: 20px;
             margin-bottom: 25px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 50px rgba(0,0,0,0.18);
+            border: 1px solid rgba(255,255,255,0.22);
             transition: transform 0.3s ease;
         }
 
@@ -163,11 +198,26 @@
         }
 
         .day-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg,
+                rgba(233, 69, 96, 0.92) 0%,
+                rgba(26, 26, 46, 0.96) 55%,
+                rgba(15, 52, 96, 0.96) 100%);
             padding: 20px;
             color: var(--white);
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .day-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, rgba(255,183,197,0.95), rgba(244,162,97,0.95), rgba(233,69,96,0.95));
+            opacity: 0.9;
         }
 
         .day-header::after {
@@ -247,6 +297,11 @@
             transition: all 0.3s ease;
         }
 
+        /* Hide per-day transport overview (we inject route hints into each activity instead) */
+        .activity.transport-overview {
+            display: none;
+        }
+
         .activity:last-child {
             margin-bottom: 0;
         }
@@ -278,6 +333,27 @@
         .activity-desc {
             font-size: 0.85rem;
             color: var(--text-light);
+        }
+
+        /* Route hint inside activities */
+        .route-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(233, 69, 96, 0.10);
+            border: 1px solid rgba(233, 69, 96, 0.18);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .route-hint::before {
+            content: '🧭';
+            font-size: 0.9rem;
         }
 
         /* Link */
@@ -550,21 +626,81 @@
 
     <!-- Navigation -->
     <nav class="nav-tabs">
-        <a href="#day1" class="nav-tab active"><span data-lang-zh>Day 1 (2/11)</span><span data-lang-en>Day 1 (2/11)</span></a>
-        <a href="#day2" class="nav-tab"><span data-lang-zh>Day 2 (2/12)</span><span data-lang-en>Day 2 (2/12)</span></a>
-        <a href="#day3" class="nav-tab"><span data-lang-zh>Day 3 (2/13)</span><span data-lang-en>Day 3 (2/13)</span></a>
-        <a href="#day4" class="nav-tab"><span data-lang-zh>Day 4 (2/14)</span><span data-lang-en>Day 4 (2/14)</span></a>
-        <a href="#day5" class="nav-tab"><span data-lang-zh>Day 5 (2/15)</span><span data-lang-en>Day 5 (2/15)</span></a>
-        <a href="#day6" class="nav-tab"><span data-lang-zh>Day 6 (2/16)</span><span data-lang-en>Day 6 (2/16)</span></a>
-        <a href="#day7" class="nav-tab"><span data-lang-zh>Day 7 (2/17)</span><span data-lang-en>Day 7 (2/17)</span></a>
-        <a href="#day8" class="nav-tab"><span data-lang-zh>Day 8 (2/18)</span><span data-lang-en>Day 8 (2/18)</span></a>
-        <a href="#day9" class="nav-tab"><span data-lang-zh>Day 9 (2/19)</span><span data-lang-en>Day 9 (2/19)</span></a>
-        <a href="#day10" class="nav-tab"><span data-lang-zh>Day 10 (2/20)</span><span data-lang-en>Day 10 (2/20)</span></a>
-        <a href="#day11" class="nav-tab"><span data-lang-zh>Day 11 (2/21)</span><span data-lang-en>Day 11 (2/21)</span></a>
-        <a href="#day12" class="nav-tab"><span data-lang-zh>Day 12 (2/22)</span><span data-lang-en>Day 12 (2/22)</span></a>
-        <a href="#day13" class="nav-tab"><span data-lang-zh>Day 13 (2/23)</span><span data-lang-en>Day 13 (2/23)</span></a>
-        <a href="#day14" class="nav-tab"><span data-lang-zh>Day 14 (2/24)</span><span data-lang-en>Day 14 (2/24)</span></a>
-        <a href="#day15" class="nav-tab"><span data-lang-zh>Day 15 (2/25)</span><span data-lang-en>Day 15 (2/25)</span></a>
+        <a href="#day1" class="nav-tab active">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 1 (2/11)</span>
+            <span class="nav-meta" data-lang-en>Day 1 (2/11)</span>
+        </a>
+        <a href="#day2" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 2 (2/12)</span>
+            <span class="nav-meta" data-lang-en>Day 2 (2/12)</span>
+        </a>
+        <a href="#day3" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 3 (2/13)</span>
+            <span class="nav-meta" data-lang-en>Day 3 (2/13)</span>
+        </a>
+        <a href="#day4" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 4 (2/14)</span>
+            <span class="nav-meta" data-lang-en>Day 4 (2/14)</span>
+        </a>
+        <a href="#day5" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 5 (2/15)</span>
+            <span class="nav-meta" data-lang-en>Day 5 (2/15)</span>
+        </a>
+        <a href="#day6" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 6 (2/16)</span>
+            <span class="nav-meta" data-lang-en>Day 6 (2/16)</span>
+        </a>
+        <a href="#day7" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 7 (2/17)</span>
+            <span class="nav-meta" data-lang-en>Day 7 (2/17)</span>
+        </a>
+        <a href="#day8" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 8 (2/18)</span>
+            <span class="nav-meta" data-lang-en>Day 8 (2/18)</span>
+        </a>
+        <a href="#day9" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 9 (2/19)</span>
+            <span class="nav-meta" data-lang-en>Day 9 (2/19)</span>
+        </a>
+        <a href="#day10" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 10 (2/20)</span>
+            <span class="nav-meta" data-lang-en>Day 10 (2/20)</span>
+        </a>
+        <a href="#day11" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 11 (2/21)</span>
+            <span class="nav-meta" data-lang-en>Day 11 (2/21)</span>
+        </a>
+        <a href="#day12" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 12 (2/22)</span>
+            <span class="nav-meta" data-lang-en>Day 12 (2/22)</span>
+        </a>
+        <a href="#day13" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 13 (2/23)</span>
+            <span class="nav-meta" data-lang-en>Day 13 (2/23)</span>
+        </a>
+        <a href="#day14" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 14 (2/24)</span>
+            <span class="nav-meta" data-lang-en>Day 14 (2/24)</span>
+        </a>
+        <a href="#day15" class="nav-tab">
+            <span class="nav-main i18n" data-zh="" data-en=""></span>
+            <span class="nav-meta" data-lang-zh>Day 15 (2/25)</span>
+            <span class="nav-meta" data-lang-en>Day 15 (2/25)</span>
+        </a>
     </nav>
 
     <!-- Main Content -->
@@ -578,22 +714,6 @@
                 <div class="day-location">📍 東京迪士尼度假區</div>
             </div>
             <div class="day-body">
-                <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            ✈️ <a href="https://www.china-airlines.com/" target="_blank">CI100 桃園 → 成田</a>
-                            <span class="i18n" data-zh="(9:30 出發 / 13:30 抵達)" data-en="(Dep 9:30 / Arr 13:30)">(9:30 出發 / 13:30 抵達)</span>
-                        </div>
-                        <div class="transport-badge">
-                            🚌 <a href="https://www.limousinebus.co.jp/ch1/" target="_blank">利木津巴士</a>
-                            <span class="i18n" data-zh="：機場利木津（成田機場 → 東京迪士尼度假區）" data-en=": Airport Limousine (Narita Airport → Tokyo Disney Resort)">：機場利木津（成田機場 → 東京迪士尼度假區）</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚶 步行：飯店 ↔ Ikspiari" data-en="🚶 Walk: Hotel ↔ Ikspiari">🚶 步行：飯店 ↔ Ikspiari</span>
-                        </div>
-                    </div>
-                </div>
                 
                 <div class="section">
                     <div class="section-title">餐食</div>
@@ -620,6 +740,19 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="✈️ CI100 桃園 → 成田 (9:30/13:30)" data-en="✈️ CI100 TPE → NRT (9:30/13:30)">✈️ CI100 桃園 → 成田 (9:30/13:30)</span>
+                                <br>
+                                <span class="i18n" data-zh="🚌 成田利木津 → 東京迪士尼度假區" data-en="🚌 Narita Limousine → Tokyo Disney Resort">🚌 成田利木津 → 東京迪士尼度假區</span>
+                                <br>
+                                <span class="i18n" data-zh="🚶 飯店 ↔ Ikspiari（步行）" data-en="🚶 Hotel ↔ Ikspiari (walk)">🚶 飯店 ↔ Ikspiari（步行）</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">9:30</div>
                         <div class="activity-content">
@@ -677,19 +810,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            🚝 <span class="i18n" data-zh="園區內交通：" data-en="Resort transport:">園區內交通：</span>
-                            <a href="https://www.tokyodisneyresort.jp/tc/" target="_blank">迪士尼度假區線</a>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚶 園區主要以步行移動" data-en="🚶 Mostly walking inside the parks">🚶 園區主要以步行移動</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -716,6 +836,15 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">園區交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚝 迪士尼度假區線 + 步行：園區內移動" data-en="🚝 Disney Resort Line + walking: moving inside resort">🚝 迪士尼度假區線 + 步行：園區內移動</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">全日</div>
                         <div class="activity-content">
@@ -744,21 +873,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 京葉線：舞浜 → 東京" data-en="🚃 JR Keiyo Line: Maihama → Tokyo">🚃 JR 京葉線：舞浜 → 東京</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：東京 → 五反田" data-en="🚃 JR Yamanote Line: Tokyo → Gotanda">🚃 JR 山手線：東京 → 五反田</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚶 五反田站 ↔ 飯店 / 晚餐地點" data-en="🚶 Gotanda Station ↔ Hotel / Dinner spot">🚶 五反田站 ↔ 飯店 / 晚餐地點</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -785,6 +899,19 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 JR 京葉線：舞浜 → 東京" data-en="🚃 JR Keiyo Line: Maihama → Tokyo">🚃 JR 京葉線：舞浜 → 東京</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 山手線：東京 → 五反田" data-en="🚃 JR Yamanote Line: Tokyo → Gotanda">🚃 JR 山手線：東京 → 五反田</span>
+                                <br>
+                                <span class="i18n" data-zh="🚶 五反田站 ↔ 飯店／晚餐（歩行）" data-en="🚶 Gotanda Station ↔ Hotel/Dinner (walk)">🚶 五反田站 ↔ 飯店／晚餐（歩行）</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">上午</div>
                         <div class="activity-content">
@@ -845,24 +972,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku">🚃 JR 山手線：五反田 → 新宿</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 中央線：新宿 → 三鷹 / 吉祥寺" data-en="🚃 JR Chuo Line: Shinjuku → Mitaka / Kichijoji">🚃 JR 中央線：新宿 → 三鷹 / 吉祥寺</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 中央線：吉祥寺 → 新宿" data-en="🚃 JR Chuo Line: Kichijoji → Shinjuku">🚃 JR 中央線：吉祥寺 → 新宿</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚶 新宿周邊步行（夜景/購物/晚餐）" data-en="🚶 Walk around Shinjuku (night view/shopping/dinner)">🚶 新宿周邊步行（夜景/購物/晚餐）</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -889,6 +998,19 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku">🚃 JR 山手線：五反田 → 新宿</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 中央線：新宿 → 三鷹 / 吉祥寺" data-en="🚃 JR Chuo Line: Shinjuku → Mitaka / Kichijoji">🚃 JR 中央線：新宿 → 三鷹 / 吉祥寺</span>
+                                <br>
+                                <span class="i18n" data-zh="🚶 新宿周邊步行（夜景/購物/晚餐）" data-en="🚶 Walk around Shinjuku (night view/shopping/dinner)">🚶 新宿周邊步行（夜景/購物/晚餐）</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">上午</div>
                         <div class="activity-content">
@@ -963,27 +1085,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 品川" data-en="🚃 JR Yamanote Line: Gotanda → Shinagawa">🚃 JR 山手線：五反田 → 品川</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 橫須賀線：品川 → 鎌倉" data-en="🚃 JR Yokosuka Line: Shinagawa → Kamakura">🚃 JR 橫須賀線：品川 → 鎌倉</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 江之電：鎌倉 ↔ 長谷 ↔ 江之島" data-en="🚃 Enoden Line: Kamakura ↔ Hase ↔ Enoshima">🚃 江之電：鎌倉 ↔ 長谷 ↔ 江之島</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 橫須賀線：鎌倉 → 品川" data-en="🚃 JR Yokosuka Line: Kamakura → Shinagawa">🚃 JR 橫須賀線：鎌倉 → 品川</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：品川 → 五反田" data-en="🚃 JR Yamanote Line: Shinagawa → Gotanda">🚃 JR 山手線：品川 → 五反田</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1008,6 +1109,21 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 品川" data-en="🚃 JR Yamanote Line: Gotanda → Shinagawa">🚃 JR 山手線：五反田 → 品川</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 橫須賀線：品川 → 鎌倉" data-en="🚃 JR Yokosuka Line: Shinagawa → Kamakura">🚃 JR 橫須賀線：品川 → 鎌倉</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 江之電：鎌倉 ↔ 長谷 ↔ 江之島" data-en="🚃 Enoden Line: Kamakura ↔ Hase ↔ Enoshima">🚃 江之電：鎌倉 ↔ 長谷 ↔ 江之島</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 橫須賀線：鎌倉 → 品川" data-en="🚃 JR Yokosuka Line: Kamakura → Shinagawa">🚃 JR 橫須賀線：鎌倉 → 品川</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">上午</div>
                         <div class="activity-content">
@@ -1054,22 +1170,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 都營淺草線：五反田 → 淺草" data-en="🚃 Toei Asakusa Line: Gotanda → Asakusa">🚃 都營淺草線：五反田 → 淺草</span>
-                        </div>
-                        <div class="transport-badge">
-                            🚄 <a href="https://www.tobu.co.jp/spacia-x/" target="_blank">SPACIA X 9號</a>
-                            <span class="i18n" data-zh="：東武淺草 → 鬼怒川溫泉" data-en=": Tobu Asakusa → Kinugawa-Onsen">：東武淺草 → 鬼怒川溫泉</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚕/🚌 鬼怒川溫泉站 → ASAYA（飯店接駁/計程車）" data-en="🚕/🚌 Kinugawa-Onsen Station → ASAYA (shuttle/taxi)">🚕/🚌 鬼怒川溫泉站 → ASAYA（飯店接駁/計程車）</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1094,6 +1194,19 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 都營淺草線：五反田 → 淺草" data-en="🚃 Toei Asakusa Line: Gotanda → Asakusa">🚃 都營淺草線：五反田 → 淺草</span>
+                                <br>
+                                <span class="i18n" data-zh="🚄 東武 SPACIA X：東武淺草 → 鬼怒川溫泉" data-en="🚄 Tobu SPACIA X: Tobu Asakusa → Kinugawa-Onsen">🚄 東武 SPACIA X：東武淺草 → 鬼怒川溫泉</span>
+                                <br>
+                                <span class="i18n" data-zh="🚕/🚌 鬼怒川溫泉站 → ASAYA（飯店接駁/計程車）" data-en="🚕/🚌 Kinugawa-Onsen Station → ASAYA (shuttle/taxi)">🚕/🚌 鬼怒川溫泉站 → ASAYA（飯店接駁/計程車）</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">上午</div>
                         <div class="activity-content">
@@ -1142,23 +1255,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚕/🚌 ASAYA → 鬼怒川溫泉站（飯店接駁/計程車）" data-en="🚕/🚌 ASAYA → Kinugawa-Onsen Station (shuttle/taxi)">🚕/🚌 ASAYA → 鬼怒川溫泉站（飯店接駁/計程車）</span>
-                        </div>
-                        <div class="transport-badge">
-                            🚄 <span class="i18n" data-zh="特急" data-en="Limited Express">特急</span>
-                            <a href="https://www.tobu.co.jp/railway/special_express/" target="_blank">日光 8號</a>
-                            <span class="i18n" data-zh="：鬼怒川溫泉 → 東武淺草" data-en=": Kinugawa-Onsen → Tobu Asakusa">：鬼怒川溫泉 → 東武淺草</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 都營淺草線：淺草 → 五反田" data-en="🚃 Toei Asakusa Line: Asakusa → Gotanda">🚃 都營淺草線：淺草 → 五反田</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1181,6 +1277,19 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚕/🚌 ASAYA → 鬼怒川溫泉站（飯店接駁/計程車）" data-en="🚕/🚌 ASAYA → Kinugawa-Onsen Station (shuttle/taxi)">🚕/🚌 ASAYA → 鬼怒川溫泉站（飯店接駁/計程車）</span>
+                                <br>
+                                <span class="i18n" data-zh="🚄 特急 日光 8號：鬼怒川溫泉 → 東武淺草" data-en="🚄 Tobu Nikko 8: Kinugawa-Onsen → Tobu Asakusa">🚄 特急 日光 8號：鬼怒川溫泉 → 東武淺草</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 都營淺草線：淺草 → 五反田" data-en="🚃 Toei Asakusa Line: Asakusa → Gotanda">🚃 都營淺草線：淺草 → 五反田</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">10:00</div>
                         <div class="activity-content">
@@ -1221,21 +1330,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 都營淺草線：五反田 → 淺草" data-en="🚃 Toei Asakusa Line: Gotanda → Asakusa">🚃 都營淺草線：五反田 → 淺草</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 筑波快線 TX：淺草 → 秋葉原" data-en="🚃 Tsukuba Express (TX): Asakusa → Akihabara">🚃 筑波快線 TX：淺草 → 秋葉原</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：秋葉原 → 五反田" data-en="🚃 JR Yamanote Line: Akihabara → Gotanda">🚃 JR 山手線：秋葉原 → 五反田</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1262,6 +1356,19 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 都營淺草線：五反田 → 淺草" data-en="🚃 Toei Asakusa Line: Gotanda → Asakusa">🚃 都營淺草線：五反田 → 淺草</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 筑波快線 TX：淺草 → 秋葉原" data-en="🚃 Tsukuba Express (TX): Asakusa → Akihabara">🚃 筑波快線 TX：淺草 → 秋葉原</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 山手線：秋葉原 → 五反田" data-en="🚃 JR Yamanote Line: Akihabara → Gotanda">🚃 JR 山手線：秋葉原 → 五反田</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">上午</div>
                         <div class="activity-content">
@@ -1315,21 +1422,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 ↔ 池袋（午餐/觀光）" data-en="🚃 JR Yamanote Line: Gotanda ↔ Ikebukuro (lunch/sightseeing)">🚃 JR 山手線：五反田 ↔ 池袋（午餐/觀光）</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 ↔ 池袋（晚餐/購物）" data-en="🚃 JR Yamanote Line: Gotanda ↔ Ikebukuro (dinner/shopping)">🚃 JR 山手線：五反田 ↔ 池袋（晚餐/購物）</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚶 池袋站周邊步行" data-en="🚶 Walk around Ikebukuro Station area">🚶 池袋站周邊步行</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1358,6 +1450,19 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 ↔ 池袋（午餐/觀光）" data-en="🚃 JR Yamanote Line: Gotanda ↔ Ikebukuro (lunch/sightseeing)">🚃 JR 山手線：五反田 ↔ 池袋（午餐/觀光）</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 ↔ 池袋（晚餐/購物）" data-en="🚃 JR Yamanote Line: Gotanda ↔ Ikebukuro (dinner/shopping)">🚃 JR 山手線：五反田 ↔ 池袋（晚餐/購物）</span>
+                                <br>
+                                <span class="i18n" data-zh="🚶 池袋站周邊步行" data-en="🚶 Walk around Ikebukuro Station area">🚶 池袋站周邊步行</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">11:30</div>
                         <div class="activity-content">
@@ -1410,22 +1515,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿（搭巴士）" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku (bus pickup)">🚃 JR 山手線：五反田 → 新宿（搭巴士）</span>
-                        </div>
-                        <div class="transport-badge">
-                            🚌 <a href="https://highway-buses.jp/chi/gotemba/" target="_blank">直達巴士</a>
-                            <span class="i18n" data-zh="：新宿 ↔ 御殿場" data-en=": Shinjuku ↔ Gotemba">：新宿 ↔ 御殿場</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 ↔ 惠比壽（晚餐）" data-en="🚃 JR Yamanote Line: Gotanda ↔ Ebisu (dinner)">🚃 JR 山手線：五反田 ↔ 惠比壽（晚餐）</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1452,6 +1541,19 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿（搭巴士）" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku (bus pickup)">🚃 JR 山手線：五反田 → 新宿（搭巴士）</span>
+                                <br>
+                                <span class="i18n" data-zh="🚌 直達巴士：新宿 ↔ 御殿場" data-en="🚌 Highway bus: Shinjuku ↔ Gotemba">🚌 直達巴士：新宿 ↔ 御殿場</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 山手線：新宿 → 惠比壽（晚餐）" data-en="🚃 JR Yamanote Line: Shinjuku → Ebisu (dinner)">🚃 JR 山手線：新宿 → 惠比壽（晚餐）</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">全日</div>
                         <div class="activity-content">
@@ -1498,21 +1600,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿集合" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku meeting point">🚃 JR 山手線：五反田 → 新宿集合</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚌 團體巴士：新宿 → 河口湖 → 新宿（全日）" data-en="🚌 Tour bus: Shinjuku → Lake Kawaguchi → Shinjuku (All day)">🚌 團體巴士：新宿 → 河口湖 → 新宿（全日）</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚶 五反田站 ↔ 晚餐（ミート矢澤）" data-en="🚶 Gotanda Station ↔ Dinner (Meat Yazawa)">🚶 五反田站 ↔ 晚餐（ミート矢澤）</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1537,6 +1624,19 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿集合" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku meeting point">🚃 JR 山手線：五反田 → 新宿集合</span>
+                                <br>
+                                <span class="i18n" data-zh="🚌 團體巴士：新宿 → 河口湖 → 新宿（全日）" data-en="🚌 Tour bus: Shinjuku → Lake Kawaguchi → Shinjuku (All day)">🚌 團體巴士：新宿 → 河口湖 → 新宿（全日）</span>
+                                <br>
+                                <span class="i18n" data-zh="🚶 五反田站 ↔ 晚餐（ミート矢澤）" data-en="🚶 Gotanda Station ↔ Dinner (Meat Yazawa)">🚶 五反田站 ↔ 晚餐（ミート矢澤）</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">8:30</div>
                         <div class="activity-content">
@@ -1604,21 +1704,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 澀谷 → 原宿" data-en="🚃 JR Yamanote Line: Gotanda → Shibuya → Harajuku">🚃 JR 山手線：五反田 → 澀谷 → 原宿</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚶 表參道/原宿區域步行逛街" data-en="🚶 Walk around Omotesando/Harajuku">🚶 表參道/原宿區域步行逛街</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：原宿/澀谷 → 五反田" data-en="🚃 JR Yamanote Line: Harajuku/Shibuya → Gotanda">🚃 JR 山手線：原宿/澀谷 → 五反田</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1645,6 +1730,19 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 澀谷 → 原宿" data-en="🚃 JR Yamanote Line: Gotanda → Shibuya → Harajuku">🚃 JR 山手線：五反田 → 澀谷 → 原宿</span>
+                                <br>
+                                <span class="i18n" data-zh="🚶 表參道/原宿區域步行逛街" data-en="🚶 Walk around Omotesando/Harajuku">🚶 表參道/原宿區域步行逛街</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 山手線：原宿/澀谷 → 五反田" data-en="🚃 JR Yamanote Line: Harajuku/Shibuya → Gotanda">🚃 JR 山手線：原宿/澀谷 → 五反田</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">上午</div>
                         <div class="activity-content">
@@ -1696,27 +1794,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 品川" data-en="🚃 JR Yamanote Line: Gotanda → Shinagawa">🚃 JR 山手線：五反田 → 品川</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 京濱東北/根岸線：品川 → 櫻木町（橫濱）" data-en="🚃 JR Keihin-Tohoku/Negishi Line: Shinagawa → Sakuragicho (Yokohama)">🚃 JR 京濱東北/根岸線：品川 → 櫻木町（橫濱）</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 港未來線：馬車道/港未來 ↔ 元町・中華街" data-en="🚃 Minato Mirai Line: Bashamichi/Minato Mirai ↔ Motomachi-Chukagai">🚃 港未來線：馬車道/港未來 ↔ 元町・中華街</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 京濱東北/根岸線：櫻木町 → 品川" data-en="🚃 JR Keihin-Tohoku/Negishi Line: Sakuragicho → Shinagawa">🚃 JR 京濱東北/根岸線：櫻木町 → 品川</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：品川 → 五反田" data-en="🚃 JR Yamanote Line: Shinagawa → Gotanda">🚃 JR 山手線：品川 → 五反田</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1741,6 +1818,23 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 品川" data-en="🚃 JR Yamanote Line: Gotanda → Shinagawa">🚃 JR 山手線：五反田 → 品川</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 京濱東北/根岸線：品川 → 櫻木町（橫濱）" data-en="🚃 JR Keihin-Tohoku/Negishi Line: Shinagawa → Sakuragicho (Yokohama)">🚃 JR 京濱東北/根岸線：品川 → 櫻木町（橫濱）</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 港未來線：馬車道/港未來 ↔ 元町・中華街" data-en="🚃 Minato Mirai Line: Bashamichi/Minato Mirai ↔ Motomachi-Chukagai">🚃 港未來線：馬車道/港未來 ↔ 元町・中華街</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 京濱東北/根岸線：櫻木町 → 品川" data-en="🚃 JR Keihin-Tohoku/Negishi Line: Sakuragicho → Shinagawa">🚃 JR 京濱東北/根岸線：櫻木町 → 品川</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 JR 山手線：品川 → 五反田" data-en="🚃 JR Yamanote Line: Shinagawa → Gotanda">🚃 JR 山手線：品川 → 五反田</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">上午</div>
                         <div class="activity-content">
@@ -1787,24 +1881,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 惠比壽" data-en="🚃 JR Yamanote Line: Gotanda → Ebisu">🚃 JR 山手線：五反田 → 惠比壽</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 東京Metro 日比谷線：惠比壽 ↔ 中目黑" data-en="🚃 Tokyo Metro Hibiya Line: Ebisu ↔ Nakameguro">🚃 東京Metro 日比谷線：惠比壽 ↔ 中目黑</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚃 日比谷線 + 銀座線：中目黑 → 銀座 → 日本橋" data-en="🚃 Hibiya + Ginza Lines: Nakameguro → Ginza → Nihonbashi">🚃 日比谷線 + 銀座線：中目黑 → 銀座 → 日本橋</span>
-                        </div>
-                        <div class="transport-badge">
-                            <span class="i18n" data-zh="🚶/🚃 日本橋 ↔ 東京車站（步行或地鐵 1 站）" data-en="🚶/🚃 Nihonbashi ↔ Tokyo Station (walk or 1 stop)">🚶/🚃 日本橋 ↔ 東京車站（步行或地鐵 1 站）</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1835,6 +1911,21 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 惠比壽" data-en="🚃 JR Yamanote Line: Gotanda → Ebisu">🚃 JR 山手線：五反田 → 惠比壽</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 東京Metro 日比谷線：惠比壽 ↔ 中目黑" data-en="🚃 Tokyo Metro Hibiya Line: Ebisu ↔ Nakameguro">🚃 東京Metro 日比谷線：惠比壽 ↔ 中目黑</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 日比谷線 + 銀座線：中目黑 → 銀座 → 日本橋" data-en="🚃 Hibiya + Ginza Lines: Nakameguro → Ginza → Nihonbashi">🚃 日比谷線 + 銀座線：中目黑 → 銀座 → 日本橋</span>
+                                <br>
+                                <span class="i18n" data-zh="🚶/🚃 日本橋 ↔ 東京車站（步行或地鐵 1 站）" data-en="🚶/🚃 Nihonbashi ↔ Tokyo Station (walk or 1 stop)">🚶/🚃 日本橋 ↔ 東京車站（步行或地鐵 1 站）</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">12:00</div>
                         <div class="activity-content">
@@ -1907,20 +1998,6 @@
             </div>
             <div class="day-body">
                 <div class="section">
-                    <div class="section-title">交通</div>
-                    <div class="transport-badges">
-                        <div class="transport-badge">
-                            🚄 <a href="https://www.jreast.co.jp/tc/nex/" target="_blank">JR 成田特快 N'EX</a>
-                            <span class="i18n" data-zh="：東京/品川 → 成田（最少轉乘）" data-en=": Tokyo/Shinagawa → Narita (minimal transfers)">：東京/品川 → 成田（最少轉乘）</span>
-                        </div>
-                        <div class="transport-badge">
-                            ✈️ <a href="https://www.china-airlines.com/" target="_blank">CI109 成田 → 桃園</a>
-                            <span class="i18n" data-zh="(19:30 出發 / 22:45 抵達)" data-en="(Dep 19:30 / Arr 22:45)">(19:30 出發 / 22:45 抵達)</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <div class="section-title">餐食</div>
                     <div class="meal-grid">
                         <div class="meal-item">
@@ -1943,6 +2020,17 @@
 
                 <div class="section">
                     <div class="section-title">行程</div>
+                    <div class="activity">
+                        <div class="activity-time">上午</div>
+                        <div class="activity-content">
+                            <div class="activity-name">交通</div>
+                            <div class="activity-desc">
+                                <span class="i18n" data-zh="🚄 JR 成田特快 N'EX：五反田/品川 → 成田 (最少轉乘)" data-en="🚄 JR N'EX: Gotanda/Shinagawa → Narita (minimal transfers)">🚄 JR 成田特快 N'EX：五反田/品川 → 成田 (最少轉乘)</span>
+                                <br>
+                                <span class="i18n" data-zh="✈️ CI109 成田 → 桃園 (19:30 出發 / 22:45 抵達)" data-en="✈️ CI109 Narita → Taipei (Dep 19:30 / Arr 22:45)">✈️ CI109 成田 → 桃園 (19:30 出發 / 22:45 抵達)</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="activity">
                         <div class="activity-time">11:00</div>
                         <div class="activity-content">
@@ -2307,7 +2395,7 @@
                 '.activity-time', '.activity-name', '.activity-desc',
                 '.meal-label', '.meal-name', '.transport-badge',
                 '.todo-header h2', '.todo-content h3', '.todo-content p',
-                '.todo-booking', '.link', '.nav-tab'
+                '.todo-booking', '.link', '.nav-tab', '.nav-main', '.nav-meta'
             ];
 
             document.querySelectorAll(selectors.join(', ')).forEach(el => {
@@ -2364,8 +2452,159 @@
                 }
             });
 
+            // Re-sync nav summaries and transport hints after translation
+            syncNavSummaries();
+            integrateTransportIntoItinerary();
+
             // Store preference
             localStorage.setItem('lang', toLang);
+        }
+
+        function syncNavSummaries() {
+            function normalizeText(s) {
+                return (s || '')
+                    .replace(/[🌸💝🏨✈️🚌🚃🚄🚶🧭🔗🛍️🍜🍣🍽️🥓🥩🍔🏰🐭☕🌳🏮🙏⛩️🧱✨🎀🏢📚🌅]/g, '')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+            }
+
+            function buildNavHighlights(card) {
+                // Ordered keyword patterns; first match wins, preserves itinerary order
+                const patterns = [
+                    { re: /迪士尼|Disney/i, zh: '迪士尼', en: 'Disney' },
+                    { re: /鬼怒川|Kinugawa|ASAYA/i, zh: '鬼怒川溫泉', en: 'Kinugawa Onsen' },
+                    { re: /鎌倉/i, zh: '鎌倉', en: 'Kamakura' },
+                    { re: /江之島|Enoshima/i, zh: '江之島', en: 'Enoshima' },
+                    { re: /淺草/i, zh: '淺草', en: 'Asakusa' },
+                    { re: /秋葉原/i, zh: '秋葉原', en: 'Akihabara' },
+                    { re: /御殿場|Gotemba/i, zh: '御殿場 Outlets', en: 'Gotemba Outlets' },
+                    { re: /河口湖|富士山|Fuji|Kawaguchi/i, zh: '河口湖/富士山', en: 'Mt. Fuji / Kawaguchi' },
+                    { re: /橫濱|Yokohama/i, zh: '橫濱', en: 'Yokohama' },
+                    { re: /三鷹|吉卜力|Ghibli/i, zh: '三鷹吉卜力', en: 'Ghibli (Mitaka)' },
+                    { re: /吉祥寺/i, zh: '吉祥寺', en: 'Kichijoji' },
+                    { re: /新宿/i, zh: '新宿', en: 'Shinjuku' },
+                    { re: /澀谷/i, zh: '澀谷', en: 'Shibuya' },
+                    { re: /原宿|表參道/i, zh: '原宿/表參道', en: 'Harajuku/Omotesando' },
+                    { re: /池袋/i, zh: '池袋', en: 'Ikebukuro' },
+                    { re: /惠比壽/i, zh: '惠比壽', en: 'Ebisu' },
+                    { re: /中目黑/i, zh: '中目黑', en: 'Nakameguro' },
+                    { re: /日本橋/i, zh: '日本橋', en: 'Nihonbashi' },
+                    { re: /東京車站|Tokyo Station/i, zh: '東京車站', en: 'Tokyo Station' },
+                    { re: /離境|成田|NRT|機場|Airport/i, zh: '離境/成田', en: 'Departure / Narita' },
+                ];
+
+                const itinerarySection = Array.from(card.querySelectorAll('.section')).find(sec => {
+                    const t = sec.querySelector('.section-title');
+                    if (!t) return false;
+                    const txt = t.textContent.trim();
+                    return txt === '行程' || txt === 'Itinerary';
+                });
+
+                const labels = [];
+                const seen = new Set();
+
+                if (itinerarySection) {
+                    const activityNames = Array.from(itinerarySection.querySelectorAll('.activity-name'))
+                        .map(n => normalizeText(n.textContent))
+                        .filter(Boolean)
+                        .filter(t => !['交通', 'Transport'].includes(t));
+
+                    for (const name of activityNames) {
+                        for (const p of patterns) {
+                            if (p.re.test(name) && !seen.has(p.zh)) {
+                                labels.push(p);
+                                seen.add(p.zh);
+                                break;
+                            }
+                        }
+                        if (labels.length >= 3) break;
+                    }
+                }
+
+                if (labels.length === 0) {
+                    const loc = card.querySelector('.day-location')?.textContent || '';
+                    const zh = normalizeText(loc.replace(/^📍\s*/, '')) || '行程';
+                    const en = translateText(zh, 'en') || 'Itinerary';
+                    return { zh, en };
+                }
+
+                const zhParts = labels.map(x => x.zh);
+                const enParts = labels.map(x => x.en);
+
+                const zh = zhParts.length === 2 ? zhParts.join('＋') : zhParts.join('、');
+                const en = enParts.length === 2 ? enParts.join(' + ') : enParts.join(', ');
+                return { zh, en };
+            }
+
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                const target = tab.getAttribute('href');
+                const main = tab.querySelector('.nav-main');
+                if (!target || !main) return;
+                const card = document.querySelector(target);
+                if (!card) return;
+
+                const { zh, en } = buildNavHighlights(card);
+                main.dataset.zh = zh;
+                main.dataset.en = en;
+                main.textContent = (currentLang === 'en') ? en : zh;
+            });
+        }
+
+        function integrateTransportIntoItinerary() {
+            // Remove existing injected hints to avoid duplication
+            document.querySelectorAll('.day-card .route-hint').forEach(el => el.remove());
+
+            document.querySelectorAll('.day-card').forEach(card => {
+                const itinerarySection = Array.from(card.querySelectorAll('.section')).find(sec => {
+                    const t = sec.querySelector('.section-title');
+                    if (!t) return false;
+                    const txt = t.textContent.trim();
+                    return txt === '行程' || txt === 'Itinerary';
+                });
+                if (!itinerarySection) return;
+
+                const activities = Array.from(itinerarySection.querySelectorAll('.activity'));
+                const transportActivity = activities.find(a => {
+                    const n = a.querySelector('.activity-name');
+                    if (!n) return false;
+                    const txt = n.textContent.trim();
+                    return txt === '交通' || txt === 'Transport';
+                });
+                if (!transportActivity) return;
+
+                // Hide the overview block (keep it in DOM as source data)
+                transportActivity.classList.add('transport-overview');
+                transportActivity.setAttribute('aria-hidden', 'true');
+
+                const transportLines = Array.from(transportActivity.querySelectorAll('.activity-desc .i18n'))
+                    .map(span => ({
+                        zh: span.dataset.zh || span.textContent,
+                        en: span.dataset.en || span.textContent
+                    }))
+                    .filter(x => (x.zh || '').trim().length > 0);
+                if (transportLines.length === 0) return;
+
+                const targetActivities = activities.filter(a => a !== transportActivity);
+                if (targetActivities.length === 0) return;
+
+                // Distribute route lines across activities in order; overflow goes to last activity
+                transportLines.forEach((line, idx) => {
+                    const target = targetActivities[Math.min(idx, targetActivities.length - 1)];
+                    const desc = target.querySelector('.activity-desc');
+                    if (!desc) return;
+
+                    const hint = document.createElement('div');
+                    hint.className = 'route-hint';
+                    const span = document.createElement('span');
+                    span.className = 'i18n';
+                    span.dataset.zh = line.zh;
+                    span.dataset.en = line.en;
+                    span.textContent = (currentLang === 'en' && line.en) ? line.en : line.zh;
+                    hint.appendChild(span);
+
+                    desc.insertBefore(hint, desc.firstChild);
+                });
+            });
         }
 
         function detectLanguage() {
@@ -2383,6 +2622,10 @@
                     translatePage(this.dataset.setLang);
                 });
             });
+
+            // Populate nav summaries before translating
+            syncNavSummaries();
+            integrateTransportIntoItinerary();
 
             // Auto-detect and apply language
             const initLang = detectLanguage();
