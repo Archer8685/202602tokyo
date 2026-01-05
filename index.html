@@ -350,6 +350,12 @@
         }
 
         /* Transport Badge */
+        .transport-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
         .transport-badge {
             display: inline-flex;
             align-items: center;
@@ -574,9 +580,18 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        ✈️ <a href="https://www.china-airlines.com/" target="_blank">CI100 桃園 → 成田</a> | 
-                        🚌 <a href="https://www.limousinebus.co.jp/ch1/" target="_blank">利木津巴士</a>直達迪士尼
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            ✈️ <a href="https://www.china-airlines.com/" target="_blank">CI100 桃園 → 成田</a>
+                            <span class="i18n" data-zh="(9:30 出發 / 13:30 抵達)" data-en="(Dep 9:30 / Arr 13:30)">(9:30 出發 / 13:30 抵達)</span>
+                        </div>
+                        <div class="transport-badge">
+                            🚌 <a href="https://www.limousinebus.co.jp/ch1/" target="_blank">利木津巴士</a>
+                            <span class="i18n" data-zh="：機場利木津（成田機場 → 東京迪士尼度假區）" data-en=": Airport Limousine (Narita Airport → Tokyo Disney Resort)">：機場利木津（成田機場 → 東京迪士尼度假區）</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚶 步行：飯店 ↔ Ikspiari" data-en="🚶 Walk: Hotel ↔ Ikspiari">🚶 步行：飯店 ↔ Ikspiari</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -663,8 +678,14 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚝 園區內交通 (<a href="https://www.tokyodisneyresort.jp/tc/" target="_blank">迪士尼度假區線</a>)
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            🚝 <span class="i18n" data-zh="園區內交通：" data-en="Resort transport:">園區內交通：</span>
+                            <a href="https://www.tokyodisneyresort.jp/tc/" target="_blank">迪士尼度假區線</a>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚶 園區主要以步行移動" data-en="🚶 Mostly walking inside the parks">🚶 園區主要以步行移動</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -724,8 +745,16 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚃 Disney → 五反田 (電車)
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 京葉線：舞浜 → 東京" data-en="🚃 JR Keiyo Line: Maihama → Tokyo">🚃 JR 京葉線：舞浜 → 東京</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：東京 → 五反田" data-en="🚃 JR Yamanote Line: Tokyo → Gotanda">🚃 JR 山手線：東京 → 五反田</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚶 五反田站 ↔ 飯店 / 晚餐地點" data-en="🚶 Gotanda Station ↔ Hotel / Dinner spot">🚶 五反田站 ↔ 飯店 / 晚餐地點</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -817,8 +846,19 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚃 JR 線：五反田 → 三鷹 → 吉祥寺 → 新宿
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku">🚃 JR 山手線：五反田 → 新宿</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 中央線：新宿 → 三鷹 / 吉祥寺" data-en="🚃 JR Chuo Line: Shinjuku → Mitaka / Kichijoji">🚃 JR 中央線：新宿 → 三鷹 / 吉祥寺</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 中央線：吉祥寺 → 新宿" data-en="🚃 JR Chuo Line: Kichijoji → Shinjuku">🚃 JR 中央線：吉祥寺 → 新宿</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚶 新宿周邊步行（夜景/購物/晚餐）" data-en="🚶 Walk around Shinjuku (night view/shopping/dinner)">🚶 新宿周邊步行（夜景/購物/晚餐）</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -924,8 +964,22 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚃 JR 橫須賀線：五反田 → 鎌倉
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 品川" data-en="🚃 JR Yamanote Line: Gotanda → Shinagawa">🚃 JR 山手線：五反田 → 品川</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 橫須賀線：品川 → 鎌倉" data-en="🚃 JR Yokosuka Line: Shinagawa → Kamakura">🚃 JR 橫須賀線：品川 → 鎌倉</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 江之電：鎌倉 ↔ 長谷 ↔ 江之島" data-en="🚃 Enoden Line: Kamakura ↔ Hase ↔ Enoshima">🚃 江之電：鎌倉 ↔ 長谷 ↔ 江之島</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 橫須賀線：鎌倉 → 品川" data-en="🚃 JR Yokosuka Line: Kamakura → Shinagawa">🚃 JR 橫須賀線：鎌倉 → 品川</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：品川 → 五反田" data-en="🚃 JR Yamanote Line: Shinagawa → Gotanda">🚃 JR 山手線：品川 → 五反田</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1001,8 +1055,17 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚄 <a href="https://www.tobu.co.jp/spacia-x/" target="_blank">SPACIA X 9號</a> 淺草 → 鬼怒川
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 都營淺草線：五反田 → 淺草" data-en="🚃 Toei Asakusa Line: Gotanda → Asakusa">🚃 都營淺草線：五反田 → 淺草</span>
+                        </div>
+                        <div class="transport-badge">
+                            🚄 <a href="https://www.tobu.co.jp/spacia-x/" target="_blank">SPACIA X 9號</a>
+                            <span class="i18n" data-zh="：東武淺草 → 鬼怒川溫泉" data-en=": Tobu Asakusa → Kinugawa-Onsen">：東武淺草 → 鬼怒川溫泉</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚕/🚌 鬼怒川溫泉站 → ASAYA（飯店接駁/計程車）" data-en="🚕/🚌 Kinugawa-Onsen Station → ASAYA (shuttle/taxi)">🚕/🚌 鬼怒川溫泉站 → ASAYA（飯店接駁/計程車）</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1080,8 +1143,18 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚄 特急 <a href="https://www.tobu.co.jp/railway/special_express/" target="_blank">日光 8號</a> → 東京
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚕/🚌 ASAYA → 鬼怒川溫泉站（飯店接駁/計程車）" data-en="🚕/🚌 ASAYA → Kinugawa-Onsen Station (shuttle/taxi)">🚕/🚌 ASAYA → 鬼怒川溫泉站（飯店接駁/計程車）</span>
+                        </div>
+                        <div class="transport-badge">
+                            🚄 <span class="i18n" data-zh="特急" data-en="Limited Express">特急</span>
+                            <a href="https://www.tobu.co.jp/railway/special_express/" target="_blank">日光 8號</a>
+                            <span class="i18n" data-zh="：鬼怒川溫泉 → 東武淺草" data-en=": Kinugawa-Onsen → Tobu Asakusa">：鬼怒川溫泉 → 東武淺草</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 都營淺草線：淺草 → 五反田" data-en="🚃 Toei Asakusa Line: Asakusa → Gotanda">🚃 都營淺草線：淺草 → 五反田</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1149,8 +1222,16 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚃 地鐵/JR：淺草 → 秋葉原
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 都營淺草線：五反田 → 淺草" data-en="🚃 Toei Asakusa Line: Gotanda → Asakusa">🚃 都營淺草線：五反田 → 淺草</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 筑波快線 TX：淺草 → 秋葉原" data-en="🚃 Tsukuba Express (TX): Asakusa → Akihabara">🚃 筑波快線 TX：淺草 → 秋葉原</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：秋葉原 → 五反田" data-en="🚃 JR Yamanote Line: Akihabara → Gotanda">🚃 JR 山手線：秋葉原 → 五反田</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1235,8 +1316,16 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚃 東京市區電車 (JR 線)
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 ↔ 池袋（午餐/觀光）" data-en="🚃 JR Yamanote Line: Gotanda ↔ Ikebukuro (lunch/sightseeing)">🚃 JR 山手線：五反田 ↔ 池袋（午餐/觀光）</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 ↔ 池袋（晚餐/購物）" data-en="🚃 JR Yamanote Line: Gotanda ↔ Ikebukuro (dinner/shopping)">🚃 JR 山手線：五反田 ↔ 池袋（晚餐/購物）</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚶 池袋站周邊步行" data-en="🚶 Walk around Ikebukuro Station area">🚶 池袋站周邊步行</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1322,8 +1411,17 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚌 <a href="https://highway-buses.jp/chi/gotemba/" target="_blank">直達巴士</a>：新宿 ↔ 御殿場
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿（搭巴士）" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku (bus pickup)">🚃 JR 山手線：五反田 → 新宿（搭巴士）</span>
+                        </div>
+                        <div class="transport-badge">
+                            🚌 <a href="https://highway-buses.jp/chi/gotemba/" target="_blank">直達巴士</a>
+                            <span class="i18n" data-zh="：新宿 ↔ 御殿場" data-en=": Shinjuku ↔ Gotemba">：新宿 ↔ 御殿場</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 ↔ 惠比壽（晚餐）" data-en="🚃 JR Yamanote Line: Gotanda ↔ Ebisu (dinner)">🚃 JR 山手線：五反田 ↔ 惠比壽（晚餐）</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1401,8 +1499,16 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚌 團體巴士：新宿 → 河口湖 (全日)
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿集合" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku meeting point">🚃 JR 山手線：五反田 → 新宿集合</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚌 團體巴士：新宿 → 河口湖 → 新宿（全日）" data-en="🚌 Tour bus: Shinjuku → Lake Kawaguchi → Shinjuku (All day)">🚌 團體巴士：新宿 → 河口湖 → 新宿（全日）</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚶 五反田站 ↔ 晚餐（ミート矢澤）" data-en="🚶 Gotanda Station ↔ Dinner (Meat Yazawa)">🚶 五反田站 ↔ 晚餐（ミート矢澤）</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1499,8 +1605,16 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚃 JR 線：五反田 → 澀谷 → 原宿/表參道
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 澀谷 → 原宿" data-en="🚃 JR Yamanote Line: Gotanda → Shibuya → Harajuku">🚃 JR 山手線：五反田 → 澀谷 → 原宿</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚶 表參道/原宿區域步行逛街" data-en="🚶 Walk around Omotesando/Harajuku">🚶 表參道/原宿區域步行逛街</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：原宿/澀谷 → 五反田" data-en="🚃 JR Yamanote Line: Harajuku/Shibuya → Gotanda">🚃 JR 山手線：原宿/澀谷 → 五反田</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1583,8 +1697,22 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚃 JR 線：五反田 → 橫濱 (櫻木町/港未來)
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 品川" data-en="🚃 JR Yamanote Line: Gotanda → Shinagawa">🚃 JR 山手線：五反田 → 品川</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 京濱東北/根岸線：品川 → 櫻木町（橫濱）" data-en="🚃 JR Keihin-Tohoku/Negishi Line: Shinagawa → Sakuragicho (Yokohama)">🚃 JR 京濱東北/根岸線：品川 → 櫻木町（橫濱）</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 港未來線：馬車道/港未來 ↔ 元町・中華街" data-en="🚃 Minato Mirai Line: Bashamichi/Minato Mirai ↔ Motomachi-Chukagai">🚃 港未來線：馬車道/港未來 ↔ 元町・中華街</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 京濱東北/根岸線：櫻木町 → 品川" data-en="🚃 JR Keihin-Tohoku/Negishi Line: Sakuragicho → Shinagawa">🚃 JR 京濱東北/根岸線：櫻木町 → 品川</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：品川 → 五反田" data-en="🚃 JR Yamanote Line: Shinagawa → Gotanda">🚃 JR 山手線：品川 → 五反田</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1660,8 +1788,19 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚃 JR 線/地鐵：五反田 → 惠比壽 → 中目黑 → 東京車站
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 惠比壽" data-en="🚃 JR Yamanote Line: Gotanda → Ebisu">🚃 JR 山手線：五反田 → 惠比壽</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 東京Metro 日比谷線：惠比壽 ↔ 中目黑" data-en="🚃 Tokyo Metro Hibiya Line: Ebisu ↔ Nakameguro">🚃 東京Metro 日比谷線：惠比壽 ↔ 中目黑</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚃 日比谷線 + 銀座線：中目黑 → 銀座 → 日本橋" data-en="🚃 Hibiya + Ginza Lines: Nakameguro → Ginza → Nihonbashi">🚃 日比谷線 + 銀座線：中目黑 → 銀座 → 日本橋</span>
+                        </div>
+                        <div class="transport-badge">
+                            <span class="i18n" data-zh="🚶/🚃 日本橋 ↔ 東京車站（步行或地鐵 1 站）" data-en="🚶/🚃 Nihonbashi ↔ Tokyo Station (walk or 1 stop)">🚶/🚃 日本橋 ↔ 東京車站（步行或地鐵 1 站）</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1769,9 +1908,15 @@
             <div class="day-body">
                 <div class="section">
                     <div class="section-title">交通</div>
-                    <div class="transport-badge">
-                        🚄 <a href="https://www.jreast.co.jp/tc/nex/" target="_blank">JR 成田特快 N'EX</a> (最少轉乘) | 
-                        ✈️ <a href="https://www.china-airlines.com/" target="_blank">CI109 成田 → 桃園</a>
+                    <div class="transport-badges">
+                        <div class="transport-badge">
+                            🚄 <a href="https://www.jreast.co.jp/tc/nex/" target="_blank">JR 成田特快 N'EX</a>
+                            <span class="i18n" data-zh="：東京/品川 → 成田（最少轉乘）" data-en=": Tokyo/Shinagawa → Narita (minimal transfers)">：東京/品川 → 成田（最少轉乘）</span>
+                        </div>
+                        <div class="transport-badge">
+                            ✈️ <a href="https://www.china-airlines.com/" target="_blank">CI109 成田 → 桃園</a>
+                            <span class="i18n" data-zh="(19:30 出發 / 22:45 抵達)" data-en="(Dep 19:30 / Arr 22:45)">(19:30 出發 / 22:45 抵達)</span>
+                        </div>
                     </div>
                 </div>
                 
