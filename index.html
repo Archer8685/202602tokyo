@@ -1731,9 +1731,11 @@
                         <div class="activity-content">
                             <div class="activity-name">交通</div>
                             <div class="activity-desc">
-                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿（搭巴士）" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku (bus pickup)">🚃 JR 山手線：五反田 → 新宿（搭巴士）</span>
+                                <span class="i18n" data-zh="🚃 JR 山手線：五反田 → 新宿" data-en="🚃 JR Yamanote Line: Gotanda → Shinjuku">🚃 JR 山手線：五反田 → 新宿</span>
                                 <br>
-                                <span class="i18n" data-zh="🚌 直達巴士：新宿 ↔ 御殿場" data-en="🚌 Highway bus: Shinjuku ↔ Gotemba">🚌 直達巴士：新宿 ↔ 御殿場</span>
+                                <span class="i18n" data-zh="🚃 京王線：新宿 → 京王讀賣樂園站" data-en="🚃 Keio Line: Shinjuku → Keio Yomiuriland Station">🚃 京王線：新宿 → 京王讀賣樂園站</span>
+                                <br>
+                                <span class="i18n" data-zh="🚃 京王線：京王讀賣樂園站 → 新宿" data-en="🚃 Keio Line: Keio Yomiuriland Station → Shinjuku">🚃 京王線：京王讀賣樂園站 → 新宿</span>
                                 <br>
                                 <span class="i18n" data-zh="🚃 JR 山手線：新宿 → 惠比壽（晚餐）" data-en="🚃 JR Yamanote Line: Shinjuku → Ebisu (dinner)">🚃 JR 山手線：新宿 → 惠比壽（晚餐）</span>
                             </div>
@@ -1742,21 +1744,21 @@
                     <div class="activity">
                         <div class="activity-time">全日</div>
                         <div class="activity-content">
-                            <div class="activity-name">御殿場 Premium Outlets</div>
+                            <div class="activity-name"><span class="i18n" data-zh="讀賣樂園" data-en="Yomiuriland">讀賣樂園</span></div>
                             <div class="activity-desc">
-                                <a href="https://www.premiumoutlets.co.jp/cht/gotemba/" target="_blank" class="link">
-                                    <span class="link-icon">🛍️</span> 御殿場 Premium Outlets 官網
+                                <a href="https://www.yomiuriland.com/" target="_blank" class="link">
+                                    <span class="link-icon">🎢</span> <span class="i18n" data-zh="讀賣樂園 官網" data-en="Yomiuriland Website">讀賣樂園 官網</span>
                                 </a>
                                 <br>
-                                <small style="color: var(--gold);">⚠️ 巴士座位需預約！</small>
+                                <small style="color: var(--accent);">⏰ <span class="i18n" data-zh="14:00 入場寶可夢森林" data-en="14:00 Entry to Pokémon Forest">14:00 入場寶可夢森林</span></small>
                             </div>
                         </div>
                     </div>
                     <div class="activity">
                         <div class="activity-time">傍晚</div>
                         <div class="activity-content">
-                            <div class="activity-name">返回新宿/五反田</div>
-                            <div class="activity-desc">搭乘直達巴士返回市區</div>
+                            <div class="activity-name"><span class="i18n" data-zh="返回新宿" data-en="Return to Shinjuku">返回新宿</span></div>
+                            <div class="activity-desc"><span class="i18n" data-zh="搭乘京王線返回新宿" data-en="Return to Shinjuku by Keio Line">搭乘京王線返回新宿</span></div>
                         </div>
                     </div>
                     <div class="activity">
@@ -2370,6 +2372,11 @@
             'SPACIA X 9號 淺草 → 鬼怒川': 'SPACIA X #9 Asakusa → Kinugawa',
             '特急 日光 8號 → 東京': 'Limited Express Nikko #8 → Tokyo',
             '新宿 ↔ 御殿場': 'Shinjuku ↔ Gotemba',
+            '電車：新宿 → 讀賣樂園': 'Train: Shinjuku → Yomiuriland',
+            '京王線：新宿 → 京王讀賣樂園站': 'Keio Line: Shinjuku → Keio Yomiuriland Station',
+            '京王線：京王讀賣樂園站 → 新宿': 'Keio Line: Keio Yomiuriland Station → Shinjuku',
+            '搭乘京王線返回新宿': 'Return to Shinjuku by Keio Line',
+            '返回新宿': 'Return to Shinjuku',
             'JR 成田特快 N\'EX': 'JR Narita Express N\'EX',
             // Day 1
             '抵達東京': 'Arrive in Tokyo',
@@ -2478,8 +2485,12 @@
             '御殿場 Premium Outlets': 'Gotemba Premium Outlets',
             '御殿場 Premium Outlets 官網': 'Gotemba Premium Outlets Website',
             '⚠️ 巴士座位需預約！': '⚠️ Bus seats require reservation!',
+            '讀賣樂園': 'Yomiuriland',
+            '讀賣樂園 官網': 'Yomiuriland Website',
+            '14:00 入場寶可夢森林': '14:00 Entry to Pokémon Forest',
             '返回新宿/五反田': 'Return to Shinjuku/Gotanda',
             '搭乘直達巴士返回市區': 'Return by direct bus',
+            '搭乘電車返回市區': 'Return by train',
             // Day 11
             '河口湖一日遊': 'Lake Kawaguchi Day Trip',
             '富士山五合目': 'Mt. Fuji 5th Station',
@@ -2697,6 +2708,8 @@
                     { re: /上野|Ueno/i, zh: '上野', en: 'Ueno' },
                     { re: /秋葉原/i, zh: '秋葉原', en: 'Akihabara' },
                     { re: /御殿場|Gotemba/i, zh: '御殿場 Outlets', en: 'Gotemba Outlets' },
+                    { re: /讀賣樂園|Yomiuriland/i, zh: '讀賣樂園', en: 'Yomiuriland' },
+                    { re: /寶可夢|Pokémon/i, zh: '寶可夢', en: 'Pokémon' },
                     { re: /河口湖|富士山|Fuji|Kawaguchi/i, zh: '河口湖/富士山', en: 'Mt. Fuji / Kawaguchi' },
                     { re: /橫濱|Yokohama/i, zh: '橫濱', en: 'Yokohama' },
                     { re: /三鷹|吉卜力|Ghibli/i, zh: '三鷹吉卜力', en: 'Ghibli (Mitaka)' },
